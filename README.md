@@ -56,16 +56,60 @@ A comprehensive cross-platform mobile and web application for managing tasks and
 ### Modular Structure
 
 ```
-├── app/                    # Expo Router screens
-│   ├── (auth)/            # Authentication screens
-│   └── (tabs)/            # Main app tabs
-├── components/            # Reusable UI components
-├── store/                 # Zustand stores
-├── services/              # API and utility services
-├── contexts/              # React contexts
-├── types/                 # TypeScript definitions
-├── utils/                 # Helper functions
-└── constants/             # App constants
+LifeHub/
+│
+├── app/                        # Expo Router (screens & navigation)
+│   ├── _layout.tsx             # Root layout (wrap with Provider, Theme, etc.)
+│   ├── (tabs)/                 # Tab-based navigation
+│   │   ├── _layout.tsx         # Tab layout file
+│   │   ├── index.tsx           # Home/Dashboard tab
+│   │   ├── tasks.tsx           # Task management tab
+│   │   ├── finance.tsx         # Finance/Expense tab
+│   │   ├── profile.tsx         # Profile tab
+│   │   └── settings.tsx        # Settings tab
+│   │
+│   ├── auth/                   # Stack for auth screens
+│   │   ├── login.tsx
+│   │   ├── signup.tsx
+│   │   └── forgot-password.tsx
+│   │
+│   └── onboarding.tsx          # First-time user onboarding
+│
+├── src/                        # Core business logic
+│   ├── components/             # Reusable UI components
+│   │   ├── ui/                 # Button, Input, Card, etc.
+│   │   ├── charts/             # Charts/Graphs
+│   │   └── layout/             # Header, TabBar, etc.
+│   │
+│   ├── features/               # Feature-based modules
+│   │   ├── tasks/              # Task module
+│   │   │   ├── api.ts
+│   │   │   ├── store.ts
+│   │   │   └── types.ts
+│   │   ├── finance/            # Finance module
+│   │   │   ├── api.ts
+│   │   │   ├── store.ts
+│   │   │   └── types.ts
+│   │   ├── profile/
+│   │   └── auth/
+│   │
+│   ├── hooks/                  # Custom hooks
+│   ├── lib/                    # Helpers/utilities
+│   ├── services/               # API, DB, Notifications
+│   ├── store/                  # Global Zustand stores
+│   ├── theme/                  # Theme system
+│   ├── types/                  # Global types/interfaces
+│   └── config/                 # App config/constants
+│
+├── assets/                     # Images, fonts, icons, lotties
+│
+├── scripts/                    # CI/CD, seeding, automation
+│
+├── app.json
+├── babel.config.js
+├── tsconfig.json
+└── package.json
+
 ```
 
 ### State Management
